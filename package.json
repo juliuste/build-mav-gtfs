@@ -1,7 +1,7 @@
 {
 	"name": "build-mav-gtfs",
 	"description": "Build GTFS for the Hungarian State Railways (Magyar Államvasutak, MÁV).",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"bin": {
 		"build-mav-gtfs": "./bin.js"
 	},

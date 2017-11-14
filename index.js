@@ -37,7 +37,8 @@ const fetchTrains = (dates, stations) => {
                 q.push((cb) =>
                     departureRequest(station, date)
                     .then((fetchedTrains) => {
-                        trains = union(trains, fetchedTrains)
+                        const newTrains = fetchedTrains.map((x) => ({id: x.train.id, number: x.train.number || x.train.id}))
+                        trains = uniqBy(union(trains, newTrains), (x) => x.id)
                         cb()
                     })
                     .catch(() => cb())
@@ -71,7 +72,7 @@ const fetchTimetables = (trains) => {
             q.push((cb) => {
                 console.info('train '+counter+'/'+trains.length)
                 counter++
-                return mav.trains(train.train.id)
+                return mav.trains(train.id)
                 .then((timetable) => {
                     if(timetable) timetables.push(timetable)
                     cb()
@@ -143,7 +144,7 @@ const fetch = async (startDate, endDate, timezone='Europe/Budapest') => {
     const stations = (await mav.stations()) // .filter((x) => +x.id < 1000)
     const trains = await fetchTrains(dates, stations)
 
-    const routes = uniqBy(trains, (x) => x.train.number || x.train.id)
+    const routes = uniqBy(trains, (x) => x.number)
 
     const feedStart = momentTz.tz(startDate, timezone).format('YYYYMMDD')
     const feedEnd = momentTz.tz(endDate, timezone).format('YYYYMMDD')
@@ -158,7 +159,7 @@ const fetch = async (startDate, endDate, timezone='Europe/Budapest') => {
         )),
         routes: toStream(Array(
             ['route_id', 'agency_id', 'route_short_name', 'route_long_name', 'route_desc', 'route_type', 'route_url', 'route_color', 'route_text_color'],
-            ...routes.map((r) => [r.train.number || r.train.id, 'máv', ''+(r.train.number || r.train.id), ''+(r.train.number || r.train.id), '', 2, '', '', '']) // todo: type
+            ...routes.map((r) => [r.number, 'máv', ''+r.number, ''+r.number, '', 2, '', '', '']) // todo: type
         )),
         trips: stream(),
         stop_times: stream(),
