@@ -7,8 +7,6 @@ Build [GTFS](https://developers.google.com/transit/gtfs/) from the [Magyar Álla
 *Work in progress. This software is not stable yet. See the [to-do](#to-do) section.*
 
 [![npm version](https://img.shields.io/npm/v/build-mav-gtfs.svg)](https://www.npmjs.com/package/build-mav-gtfs)
-[![Build Status](https://travis-ci.org/juliuste/build-mav-gtfs.svg?branch=master)](https://travis-ci.org/juliuste/build-mav-gtfs)
-[![Greenkeeper badge](https://badges.greenkeeper.io/juliuste/build-mav-gtfs.svg)](https://greenkeeper.io/)
 [![dependency status](https://img.shields.io/david/juliuste/build-mav-gtfs.svg)](https://david-dm.org/juliuste/build-mav-gtfs)
 [![dev dependency status](https://img.shields.io/david/dev/juliuste/build-mav-gtfs.svg)](https://david-dm.org/juliuste/build-mav-gtfs#info=devDependencies)
 [![license](https://img.shields.io/github/license/juliuste/build-mav-gtfs.svg?style=flat)](LICENSE)
