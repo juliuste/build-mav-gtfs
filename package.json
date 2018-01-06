@@ -20,7 +20,7 @@
 		"client",
 		"transport"
 	],
-	"author": "Julius Tens <mail@juliustens.de>",
+	"author": "Julius Tens <mail@juliustens.eu>",
 	"homepage": "https://github.com/juliuste/build-mav-gtfs",
 	"repository": "juliuste/build-mav-gtfs",
 	"bugs": "https://github.com/juliuste/build-mav-gtfs/issues",
