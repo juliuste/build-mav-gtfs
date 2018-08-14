@@ -118,7 +118,7 @@ const toGTFS = (dates) => (timetables) => {
         result.trips.push([trip.number || trip.id, (trip.number || trip.id)+'-'+i, (trip.number || trip.id)+'-'+i, '', '', '', '', '', '', ''])
         let j = 0
         for(let stop of trip.stops){
-            result.stop_times.push([(trip.number || trip.id)+'-'+i, getTime(stop.arrival, stop.arrival), getTime(stop.departure, stop.arrival), j, '', '', '', '', ''])
+            result.stop_times.push([(trip.number || trip.id)+'-'+i, getTime(stop.arrival, stop.arrival), getTime(stop.departure, stop.arrival), j, '', '', '', '', '', ''])
             j++
         }
         for(let trip of byTrip[key]){
